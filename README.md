@@ -20,6 +20,9 @@ packer init amazon-linux-docker.pkr.json <br>
 packer validate amazon-linux-docker.pkr.json <br>
 packer build amazon-linux-docker.pkr.json <br>
 
+<img width="966" alt="image" src="https://github.com/user-attachments/assets/04c87149-2f51-483a-8dd5-05a9f9394875" />
+
+
 # Terraform_ 
 1.Install terraform <br>
 -brew install hashicorp/tap/terraform <br><br>
