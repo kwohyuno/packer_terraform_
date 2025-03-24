@@ -39,3 +39,4 @@ packer build amazon-linux-docker.pkr.json <br>
 -terraform init <br>
 -terraform plan <br>
 -terraform apply<br>
+<img width="505" alt="image" src="https://github.com/user-attachments/assets/e7c5621a-de63-4ec7-8a3b-3fb4b46d8244" />
