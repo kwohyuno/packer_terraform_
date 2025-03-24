@@ -20,6 +20,22 @@ packer init amazon-linux-docker.pkr.json <br>
 packer validate amazon-linux-docker.pkr.json <br>
 packer build amazon-linux-docker.pkr.json <br>
 
-# Terraform_
+# Terraform_ 
+1.Install terraform <br>
+-brew install hashicorp/tap/terraform <br><br>
 
+2.Make bastion host <br>
+-Allow ssh from my IP <br><br>
 
+3.Use custom ami to make 6 ec2  <br><br>
+
+4.Make vpc module in main.tf <br><br>
+
+5.add variables in variables.tf <br>
+-custom ami <br>
+-my ip <br><br>
+
+5.Execute Terraform <br>
+-terraform init <br>
+-terraform plan <br>
+-terraform apply<br>
