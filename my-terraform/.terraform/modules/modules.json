@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"bastion","Source":"registry.terraform.io/umotif-public/bastion/aws","Version":"2.6.1","Dir":".terraform/modules/bastion"},{"Key":"vpc","Source":"registry.terraform.io/terraform-aws-modules/vpc/aws","Version":"5.2.0","Dir":".terraform/modules/vpc"}]}

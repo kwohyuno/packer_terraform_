@@ -15,7 +15,7 @@
       "default": "custom-amazon-linux-docker"
     },
     "ssh_public_key": {
-      "default": "/Users/hyunohkwon/Downloads/my-ec2-key.pem"
+      "default": "/Users/hyunohkwon/Downloads/kwohyuno-key-pair.pem"
     }
   },
   "source": {
