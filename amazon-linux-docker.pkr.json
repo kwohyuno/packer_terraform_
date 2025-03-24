@@ -1,0 +1,69 @@
+{
+  "packer": {
+    "required_plugins": {
+      "amazon": {
+        "version": ">= 1.0.0",
+        "source": "github.com/hashicorp/amazon"
+      }
+    }
+  },
+  "variable": {
+    "aws_region": {
+      "default": "us-east-1"
+    },
+    "ami_name": {
+      "default": "custom-amazon-linux-docker"
+    },
+    "ssh_public_key": {
+      "default": "/Users/hyunohkwon/Downloads/my-ec2-key.pem"
+    }
+  },
+  "source": {
+    "amazon-ebs": {
+      "example": {
+        "region": "${var.aws_region}",
+        "source_ami_filter": {
+          "filters": {
+            "name": "amzn2-ami-hvm-2.*-x86_64-gp2",
+            "virtualization-type": "hvm"
+          },
+          "owners": [
+            "137112412989"
+          ],
+          "most_recent": true
+        },
+        "instance_type": "t2.micro",
+        "ssh_username": "ec2-user",
+        "ami_name": "${var.ami_name}"
+      }
+    }
+  },
+  "build": {
+    "sources": [
+      "source.amazon-ebs.example"
+    ],
+    "provisioner": [
+      {
+        "shell": {
+          "inline": [
+            "sudo yum update -y",
+            "sudo amazon-linux-extras install docker -y",
+            "sudo service docker start",
+            "sudo usermod -a -G docker ec2-user"
+          ]
+        }
+      },
+      {
+        "shell": {
+          "inline": [
+            "echo \"Adding SSH public key...\"",
+            "mkdir -p ~/.ssh",
+            "chmod 700 ~/.ssh",
+            "echo \"${file(var.ssh_public_key)}\" >> ~/.ssh/authorized_keys",
+            "chmod 600 ~/.ssh/authorized_keys"
+          ]
+        }
+      }
+    ]
+  }
+}
