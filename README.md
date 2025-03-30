@@ -1,4 +1,5 @@
 # Updates for Assignment10, Ansible Practice(Mar 30th) <br>
+
 1. Fixed ec2_instance.tf<br>
 -making 3 ubuntu instance and 3 another Amazon Linux instance<br>
 -1 ansible controller instance<br>
@@ -28,7 +29,7 @@ ansible-playbook -i inventory.ini playbook.yml --private-key /Users/hyunohkwon/D
 p.s. I ran the ansible at local server, using jump host, 
 
 
-
+<br><br><br>
 
 # packer_to_make_ami 
 1.Download Packer <br>
