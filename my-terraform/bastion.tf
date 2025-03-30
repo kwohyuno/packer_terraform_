@@ -1,6 +1,6 @@
 resource "aws_key_pair" "bastion-key" {
   key_name   = var.key_name
-  public_key = var.public_key
+  public_key = file("/Users/hyunohkwon/Downloads/kwohyuno-key-pair.pub")
 }
 
 resource "aws_security_group" "bastion_sg" {
@@ -29,6 +29,8 @@ resource "aws_instance" "bastion" {
   instance_type = "t2.micro"
   subnet_id     = module.vpc.public_subnets[0]
   key_name      = var.key_name
+
+  associate_public_ip_address = true
 
   vpc_security_group_ids = [aws_security_group.bastion_sg.id]
   iam_instance_profile   = aws_iam_instance_profile.bastion_profile.name

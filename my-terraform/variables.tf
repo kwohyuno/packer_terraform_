@@ -35,7 +35,7 @@ variable "bastion_prefix" {
 
 variable "public_key" {
   description = "Public SSH key for bastion access"
-  default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDcJPhQC0HmalmAZfOrWrx9aj1NiPXks25cyrEckq4nyv9bOFcEy7H1TayPKmFYWDfOpmos/9X2vNPFaHvpOv8PQAXc0jlHy3Bmwr5ueeZ9ls53uBM46vCQXUemm6KBnXyinb3xXNNqjbrC31XlleWeM0p/vKtDKrrd0f890WmGyzfQsbWI7MWhrtC+NcAG8ETuivaMm8wvBLUhD/hKOs1A4aReXd/1/BeyoZIxBHLd0oj2TIvlhOAcqVJL+UJoshHFXVwxToA5MKnkBwGcMkQoAvXMzwT0I4h0+xPvNdOtJPY48mScccGrARiLlelASulitli1ec4NJu/77i6bM4OH hyunohkwon@HYUNs-MacBook-Pro.local"
+  default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCrbu4LzrqncYmM7jW9WxquNSl5nQ3kOKHC/Lb4oasTPuyOhji/SdbwTjBHGIL9o7wLOBZ8JITrZHc7znHbSbsTKYqkjY1Zkt1C3LHR1gAvO3pzoh8TIMiIeAUNShujAWjWtJM9HGbcgyZkEwcwZCq9rPsxIBif80saGd4L//1QcxfSNyJTVplNl+BaMCPGMsimHEpKXadR3BPVRszAQAfv5rkYkajzzOQ94ZKtX7TMnVJtg0Hrts8w2QnjvKN0oQPTwGq2K1AwEYkAqpLEEa3cSgLIkXSpOL9sq1xUOBFaBWitghH9fl9AAu+zv8NceXdvvFsxCRgUzbuwQ5OL/CR1 hyunohkwon@HYUNs-MacBook-Pro.local"
 }
 
 variable "resource_tags" {
@@ -47,11 +47,6 @@ variable "resource_tags" {
   }
 }
 
-variable "custom_ami" {
-  description = "Custom AMI ID generated with Packer"
-  default     = "ami-008beb8cc6424ec90"
-}
-
 variable "key_name" {
   description = "AWS Key Pair name (if needed for instances)"
   default     = "bastion-key"
@@ -60,4 +55,14 @@ variable "key_name" {
 variable "my_ip" {
   description = "My public IP in CIDR format (e.g., 69.84.2.1/32)"
   default     = "69.84.2.1/32"
+}
+
+variable "ubuntu_ami" {
+  description = "AMI ID for Ubuntu instances"
+  default     = "ami-0f588a6faa4a85d25"
+}
+
+variable "amazon_ami" {
+  description = "AMI ID for Amazon Linux instances"
+  default     = "ami-0ce78b6bd252344f9"
 }

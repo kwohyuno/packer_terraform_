@@ -1,0 +1,47 @@
+- name: Update and configure EC2 instances
+  hosts: ubuntu:amazon
+  become: yes
+  vars:
+    ansible_python_interpreter: /usr/bin/python3  
+  tasks:
+    - name: Update package cache and upgrade packages on Ubuntu
+      apt:
+        update_cache: yes
+        upgrade: dist
+      when: "'ubuntu' in group_names"
+
+    - name: Update package cache and upgrade packages on Amazon Linux
+      yum:
+        update_cache: yes
+        name: '*'
+        state: latest
+      when: "'amazon' in group_names"
+
+    - name: Ensure Docker is installed on Ubuntu
+      apt:
+        name: docker.io
+        state: latest
+      when: "'ubuntu' in group_names"
+
+    - name: Ensure Docker is installed on Amazon Linux
+      yum:
+        name: docker
+        state: latest
+      when: "'amazon' in group_names"
+
+    - name: Check Docker version on all instances
+      command: docker --version
+      register: docker_version
+      ignore_errors: yes
+
+    - name: Display Docker version output
+      debug:
+        var: docker_version.stdout
+
+    - name: Report disk usage on all instances
+      command: df -h
+      register: disk_usage
+
+    - name: Show disk usage output
+      debug:
+        var: disk_usage.stdout_lines
