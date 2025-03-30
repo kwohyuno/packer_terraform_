@@ -4,25 +4,29 @@
 -making 3 ubuntu instance and 3 another Amazon Linux instance<br>
 -1 ansible controller instance<br>
 <br>
-2. variables.tf<br>
+2. bastion.tf<br>
+associate_public_ip_address = true<br>
+-> this enables access to bastion host instance (grant public ip)
+<br>
+3. variables.tf<br>
 -added pre-built ubuntu_ami and amazon_ami<br>
 <br>
-3.install ansible <br>
+4.install ansible <br>
 -brew install ansible<br>
 <br>
-4.added inventory.ini<br>
+5.added inventory.ini<br>
 -add jump host by
 [all:vars]
 ansible_ssh_common_args=-o ProxyCommand="ssh -W %h:%p -q -i /Users/hyunohkwon/Downloads/kwohyuno-key-pair.pem ec2-user@ec2-54-167-98-182.compute-1.amazonaws.com" -o StrictHostKeyChecking=no
 
 <br>
 <br>
-5.added playbook.yml<br>
+6.added playbook.yml<br>
 -Update and upgrade the packages (if needed)<br>
 -Verify we are running the latest docker<br>
 -Report the disk usage for each ec2 instance<br>
 <br>
-6. run<br>
+7. run<br>
 ansible-playbook -i inventory.ini playbook.yml --private-key /Users/hyunohkwon/Downloads/kwohyuno-key-pair.pem<br>
 (you need to change key location and key name to use your key)
 <br>
