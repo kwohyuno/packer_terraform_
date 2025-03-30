@@ -7,7 +7,7 @@
 2. bastion.tf<br>
 associate_public_ip_address = true<br>
 -> this enables access to bastion host instance (grant public ip)
-<br>
+<br><br>
 3. variables.tf<br>
 -added pre-built ubuntu_ami and amazon_ami<br>
 <br>
