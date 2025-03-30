@@ -32,6 +32,10 @@ ansible-playbook -i inventory.ini playbook.yml --private-key /Users/hyunohkwon/D
 <br>
 p.s. I ran the ansible at local server, using jump host, 
 
+<br><br>
+you can see successfully performed<br>
+<img width="832" alt="image" src="https://github.com/user-attachments/assets/3068d6e5-3ca3-4ad1-a9be-a22584b0e934" />
+<br>
 
 <br><br><br>
 
